@@ -118,6 +118,161 @@ const scrollToSection2 = () => {
 
 <style lang="scss" scoped>
 
+.home {
+	min-height: 100vh;
+	max-height: 100vh;
+	overflow-x: hidden;
+	position: relative;
+}
+.home-container {
+	background-image: url('../assets/img/himalayas-4k_black-and-white.jpg');
+	background-position: 20% 44%;
+	background-attachment: fixed;
+}
+
+.home-content {
+	width: 100%;
+	min-height: calc(100vh - 72px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	position: relative;
+	z-index: 2;
+	text-align: center;
+
+	.entete {
+		margin-bottom: 75px;
+		font-size: 1.2rem;
+		font-family: 'Merriweather', sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		animation: slideUp 3s forwards;
+		@media screen and (min-width: 1080px) {
+			font-size: 1.5rem;
+		}
+	}
+	h1 {
+		font-size: 2.5rem;
+		letter-spacing: 15px;
+		font-family: 'Philosopher', sans-serif;
+		text-transform: uppercase;
+		@media screen and (min-width: 1080px) {
+			font-size: 4rem;
+			letter-spacing: 45px;
+		}
+	}
+
+	.cta-container {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		min-width: 80%;
+		max-width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		color: #fff;
+		animation: slideUp 3s 1s forwards;
+		opacity: 0;
+
+		.rs-container {
+			display: none;
+			@media screen and (min-width: 1080px) {
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				min-width: 33%;
+				margin-top: 130px;
+
+				svg {
+					height: 20px;
+					width: auto;
+					margin-right: 20px;
+					fill: #fff;
+					cursor: pointer;
+					transition: .4s ease;
+					opacity: .7;
+
+					&:hover {
+						filter: drop-shadow( 0 0 3px #0091b2);
+						opacity: 1;
+					}
+				}
+			}
+		}
+		.cta {
+			min-width: 33%;
+			margin-top: 0;
+			margin-bottom: 75px;
+			font-size: 1.2rem;
+			font-family: 'Philosopher', sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 15px;
+			position: relative;
+			color: #fff;
+			cursor: pointer;
+			@media screen and (min-width: 1080px) {
+				font-size: 2.1rem;
+			}
+
+			&::after {
+				content: "";
+				width: 1px;
+				height: 50px;
+				background-color: #fff;
+				position: absolute;
+				bottom: -60px;
+				left: 50%;
+				opacity: .5;
+				@media screen and (min-width: 1080px) {
+					height: 100px;
+					bottom: -110px;
+				}
+			}
+
+			&:hover {
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+		.slide-number-container {
+			display: none;
+			@media screen and (min-width: 1080px) {
+				display: flex;
+				justify-content: center;
+				align-items: flex-end;
+				min-width: 33%;
+				margin-top: 110px;
+				font-family: 'Philosopher', sans-serif;
+
+				p {
+					margin-top: 0;
+					margin-bottom: 0;
+					font-size: 6rem;
+						line-height: 0.7;
+
+					&:last-child {
+						margin-left: 120px;
+						font-size: 1.5rem;
+						position: relative;
+
+						&::before {
+							content: "";
+							width: 100px;
+							height: 1px;
+							background-color: #fff;
+							position: absolute;
+							bottom: 0;
+							left: -110px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
 .content-section {
 	min-height: 100vh;
 	padding-top: 50px;
@@ -128,11 +283,14 @@ const scrollToSection2 = () => {
 
 	h2 {
 		margin-top: 0;
-		font-size: 4rem;
+		font-size: 2rem;
 		text-align: center;
 		text-transform: uppercase;
-  		font-family: 'Merriweather', serif;
-		opacity: 0;
+		font-family: 'Merriweather', serif;
+		@media screen and (min-width: 1080px) {
+			font-size: 4rem;
+			opacity: 0;
+		}
 
 		&.fade {
 			animation: fade 2s forwards;
@@ -149,26 +307,35 @@ const scrollToSection2 = () => {
 	}
 
 	.img-container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 		max-width: 1080px;
 		margin: 75px auto;
-		gap: 30px;
+
+		@media screen and (min-width: 1080px) {
+			display: flex;
+			gap: 30px;
+		}
+
 		img {
-			max-width: 33%;
+			display: block;
+			max-width: 90%;
+			margin-left: auto;
+			margin-right: auto;
 			transition: 2s ease;
 
-			&:first-child {
-				transform: translateX(-300px);
-				&.translate {
-					transform: translateX(0);
+			@media screen and (min-width: 1080px) {
+				max-width: 33%;
+
+				&:first-child {
+					transform: translateX(-300px);
+					&.translate {
+						transform: translateX(0);
+					}
 				}
-			}
-			&:last-child {
-				transform: translateX(300px);
-				&.translate {
-					transform: translateX(0);
+				&:last-child {
+					transform: translateX(300px);
+					&.translate {
+						transform: translateX(0);
+					}
 				}
 			}
 		}
@@ -182,141 +349,6 @@ const scrollToSection2 = () => {
 		text-align: center;
 	}
 }
-.home {
-	min-height: 100vh;
-	max-height: 100vh;
-	overflow-x: hidden;
-	position: relative;
-}
-.home-container {
-	background-image: url('../assets/img/himalayas-4k_black-and-white.jpg');
-    background-position: 20% 44%;
-	background-attachment: fixed;
-}
-
-.home-content {
-	width: 100%;
-	min-height: calc(100vh - 72px);
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	position: relative;
-	z-index: 2;
-	text-align: center;
-
-	.entete {
-		margin-bottom: 75px;
-		font-size: 1.5rem;
-		font-family: 'Merriweather', sans-serif;
-		text-transform: uppercase;
-		letter-spacing: 5px;
-		animation: slideUp 3s forwards;
-	}
-	h1 {
-		font-size: 4rem;
-		font-family: 'Philosopher', sans-serif;
-		text-transform: uppercase;
-		letter-spacing: 45px;
-	}
-
-	.cta-container {
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-		min-width: 80%;
-		max-width: 80%;
-		margin-left: auto;
-		margin-right: auto;
-		color: #fff;
-		animation: slideUp 3s 1s forwards;
-		opacity: 0;
-
-		.rs-container {
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-			min-width: 33%;
-			margin-top: 130px;
-
-			svg {
-				height: 20px;
-				width: auto;
-				margin-right: 20px;
-				fill: #fff;
-				cursor: pointer;
-				transition: .4s ease;
-				opacity: .7;
-
-				&:hover {
-					filter: drop-shadow( 0 0 3px #0091b2);
-					opacity: 1;
-				}
-			}
-		}
-		.cta {
-			min-width: 33%;
-			margin-top: 0;
-			margin-bottom: 75px;
-			font-size: 2.1rem;
-			font-family: 'Philosopher', sans-serif;
-			text-transform: uppercase;
-			letter-spacing: 15px;
-			position: relative;
-			color: #fff;
-			cursor: pointer;
-
-			&::after {
-				content: "";
-				width: 1px;
-				height: 100px;
-				background-color: #fff;
-				position: absolute;
-				bottom: -110px;
-				left: 50%;
-				opacity: .5;
-			}
-
-			&:hover {
-				&::after {
-					opacity: 1;
-				}
-			}
-		}
-		.slide-number-container {
-			display: flex;
-			justify-content: center;
-    		align-items: flex-end;
-			min-width: 33%;
-			margin-top: 110px;
-			font-family: 'Philosopher', sans-serif;
-
-			p {
-				margin-top: 0;
-				margin-bottom: 0;
-				font-size: 6rem;
-    			line-height: 0.7;
-
-				&:last-child {
-					margin-left: 120px;
-					font-size: 1.5rem;
-					position: relative;
-
-					&::before {
-						content: "";
-						width: 100px;
-						height: 1px;
-						background-color: #fff;
-						position: absolute;
-						bottom: 0;
-						left: -110px;
-					}
-				}
-			}
-		}
-	}
-
-}
-
 .fog {
     width: 100%;
     height: 60vh;

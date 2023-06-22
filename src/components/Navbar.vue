@@ -1,11 +1,12 @@
 <script setup>
-import FogImg from '../components/FogImg.vue'
+import BurgerMenu from '../components/BurgerMenu.vue'
 </script>
 
 <template>
 	<nav>
 		<p class="logo">Glaciaria</p>
 
+        <BurgerMenu class="burgerIcon" />
 		<ul class="list">
 			<li>About</li>
 			<li>Blog</li>
@@ -20,12 +21,13 @@ import FogImg from '../components/FogImg.vue'
 
 <style lang="scss" scoped>
 nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	min-width: 80%;
 	max-width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-    display: flex;
-    justify-content: space-between;
 	color: #000;
 	position: relative;
 	z-index: 3;
@@ -33,18 +35,34 @@ nav {
 	text-transform: uppercase;
 	animation: slideDown 3s 1s forwards;
 	opacity: 0;
+	.burgerIcon {
+		width: 18px;
+		height: 18px;
+		path {
+			fill: rgba(0, 0, 0, 0.7)
+		}
+		@media screen and (min-width: 1080px) {
+			display: none;
+		}
+	}
+	
 
 	.logo {
 		letter-spacing: 5px;
 	}
 
-	.list {
-		display: flex;
-		align-items: center;
 
-		li {
-			&:not(:last-child) {
-				margin-right: 30px;
+		
+	.list {
+		display: none;
+		@media screen and (min-width: 1080px) {
+			display: flex;
+			align-items: center;
+
+			li {
+				&:not(:last-child) {
+					margin-right: 30px;
+				}
 			}
 		}
 	}
